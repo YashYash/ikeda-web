@@ -2,29 +2,40 @@ ikeda.controller('LandingController', [
   '$scope',
   '$state',
   '$rootScope',
+  '$timeout',
   function(
     $scope,
     $state,
-    $rootScope) {
+    $rootScope,
+    $timeout) {
     'use strict';
     console.log('#### Landing Controller');
     $scope.showBackground = 'one';
     $scope.loadingSuccess = 'false';
+
     $scope.applyBackground = function(number) {
       $scope.showBackground = number;
     };
 
-    $scope.imageLoaded = function() {
-      console.log('####### Image has loaded ########');
-      setTimeout(function() {
-        $scope.loadingSuccess = 'true';
-        $scope.showNameAndIcons();
-        $scope.$apply();
-      }, 3000);
-      setTimeout(function() {
+    $timeout(function() {
+      $scope.loadingSuccess = 'true';
+      $scope.showNameAndIcons();
+      $timeout(function() {
         $rootScope.allImagesHaveLoaded = 'true';
-      }, 3500);
-    };
+      }, 5900);
+    }, 5000);
+
+    // $scope.imageLoaded = function() {
+    //   console.log('####### Image has loaded ########');
+    //   setTimeout(function() {
+    //     $scope.loadingSuccess = 'true';
+    //     $scope.showNameAndIcons();
+    //     $scope.$apply();
+    //   }, 3000);
+    //   setTimeout(function() {
+    // $rootScope.allImagesHaveLoaded = 'true';
+    //   }, 3500);
+    // };
     $scope.showNameAndIcons = function() {
       setTimeout(function() {
         $scope.showName = 'true';
