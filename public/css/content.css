@@ -1,0 +1,30 @@
+/*Move content*/
+.move-container {
+	left:350px !important;
+	-webkit-transition:0.5s;
+	-moz-transition:0.5s;
+	transition:0.5s;
+}
+/*containers*/
+#content-container-desktop {
+	display: none;
+	width:100%;
+	height:100%;
+	position: relative;
+	background: #2f333f;
+	left:0;
+	-webkit-transition:0.5s;
+	-moz-transition:0.5s;
+	transition:0.5s;
+}
+#content-cotainer-mobile {
+	display: block;
+}
+@media(min-width:1024px) {
+	#content-container-desktop {
+		display: block;
+	}
+	#content-cotainer-mobile {
+		display: none;
+	}
+}

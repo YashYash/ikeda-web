@@ -1,0 +1,66 @@
+.desktop-soundcloud {
+	position: relative;
+	height:100%;
+	width:100%;
+	cursor: pointer;
+}
+
+.desktop-soundcloud-background {
+	background-size: cover !important;
+	height:100%;
+	width: 100%;
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+.desktop-soundcloud-background-overlay {
+	position: absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:rgba(1,1,1,0.9);
+	-webkit-transition:0.3s;
+	-moz-transition:0.3s;
+	transition:0.3s;
+}
+.desktop-soundcloud-background-overlay:hover {
+	background:rgba(1,1,1,0.87);
+	-webkit-transition:0.3s;
+	-moz-transition:0.3s;
+	transition:0.3s;
+}
+.desktop-soundcloud-tile-content {
+	position: absolute;
+	position: absolute;
+	top:-100px;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+	width:120px;
+	height:120px;	
+}
+.desktop-soundcloud-tile-content img {
+	border-radius: 100%;
+	border: 2px solid white;
+	height: 100%;
+	width: 100%;
+	box-shadow: 0 0 90px rgba(238,238,238,0.5);
+}
+
+.desktop-tiles-track-title {
+	position: absolute;
+	font-size: 30px;
+	font-weight: 100;
+	text-align: center;
+	width: 100%;
+	bottom: 0;
+	top: 90px;
+	height: 30px;
+	margin: auto;
+	margin: auto;
+	padding: 0px 30px;	
+	line-height: 1.5em;
+}

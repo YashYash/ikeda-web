@@ -1,0 +1,26 @@
+<div id="nowplaying-container">
+	<div id="nowplaying-art">
+		<img src="{{backgroundImage}}">
+	</div>
+	<div id="progress-bar">
+<!-- 		<span>{{elapsed}}</span>
+		<span>{{song.duration | number:3}}</span> -->
+		<div class="time-select one" ng-click="toStart()"></div>
+		<div class="time-select two no-circle" ng-click="toQuarter()"></div>
+		<div class="time-select three no-circle" ng-click="toThreeQuarter()"></div>
+		<div class="time-select four"></div>
+		<div class="progress-line" style="width: {{progress | number:0}}%"></div>
+	</div>
+	<span class="icon-soundcloud" id="sound-cloud-icon"></span>
+	<div id="nowplaying-container-title">
+		{{title}}
+	</div>
+	<div id="music-controls">
+		<span class="ion-ios-rewind rewind music-control-icons" ng-click="previousTrack()"></span>
+		<div class="play-pause-container">
+			<span class="ion-ios-play play-pause music-control-icons" ng-click="playTrack()" ng-if="playing === 'false'"></span>
+			<span class="ion-ios-pause play-pause music-control-icons" ng-click="pauseTrack()" ng-if="playing === 'true'"></span>
+		</div>
+		<span class="ion-ios-fastforward fastforward music-control-icons" ng-click="nextTrack()"></span>
+	</div>
+</div>

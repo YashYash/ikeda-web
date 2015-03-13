@@ -1,0 +1,14 @@
+<div id="now-playing-mobile" ng-class="{'hide-nowplaying': (showNowPlaying === 'false'), 'show-nowplaying': (showNowPlaying === 'true')}" ng-hide="showSideNav === 'true'">
+	<div id="toggle-now-playing" ng-if="trackPlaying === 'true' && showNowPlaying === 'false'" ng-click="showNowPlayingCard()" class="pointer">
+		<div class="holder">
+		  <div class="bar-all b1"></div>
+		  <div class="bar-all b3"></div>
+		  <div class="bar-all b8"></div>
+		  <div class="bar-all b9"></div>
+		</div>
+		<div id="now-playing-text">NOW PLAYING</div>
+	</div>
+	<span class="ion-close-round close-now-playing" ng-click="hideNowPlaying()"></span>
+	<soundcloud-Nowplaying track="nowPlayingTrack" index="trackIndex"></soundcloud-Nowplaying>	
+</div>
+

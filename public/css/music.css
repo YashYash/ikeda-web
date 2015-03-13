@@ -1,0 +1,41 @@
+#tracks {
+
+}
+
+.track-tile {
+	display: inline-block;
+	width: 51.9%;
+	height: 195px;
+	position: relative;
+	border-width: 0;
+	margin: -1%;
+	padding: 0px;
+	border: none;
+	border: 1px solid white;
+}
+
+@media(min-width:450px) {
+	.track-tile {
+		height:230px;
+	}
+}
+@media(min-width:550px) {
+	.track-tile {
+		height:260px;
+	}
+}
+@media(min-width:650px) {
+	.track-tile {
+		height:360px;
+	}
+}
+@media(min-width:800px) {
+	.track-tile {
+		width:35.1%;
+		height:250px;
+	}
+}
+
+@media(min-width:800px) {
+	.track-tile {
+		height:350px;

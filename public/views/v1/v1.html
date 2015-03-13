@@ -1,0 +1,51 @@
+<size-directive>
+	<div ui-view="nav" id="desktop-nav"></div>
+
+	<div ui-view="content" id="content-container-desktop" ng-class="{'move-container' : (showSideNav === 'true')}"></div>
+
+	<div id="global-overlay" ng-class="{'show-global-overlay' : (showSideNav === 'true')}" ng-mouseenter="showSideNavToggle()"></div>
+
+	<ion-nav-bar class="bar-stable nav-title-slide-ios7" id="mobile-nav">
+		<span class="ion-navicon-round mobile-hamburger" ng-click="openSideNav()"></span>
+	  <ion-nav-back-button class="button-icon icon  ion-chevron-left">
+	  </ion-nav-back-button>
+	</ion-nav-bar>
+
+	<div id="mobile-overlay" ng-click="closeSideNav()" ng-if="showNav === 'true'"></div>
+
+	<div id="mobile-sidenav" ng-class="{'showNav': (showNav === 'true')}">
+		<ion-content>
+			<ion-list id="nav-list">
+				<ion-item class="nav-item" ng-click="route('music')">
+					<span class="ion-headphone">Music</span>
+				</ion-item>		
+				<ion-item class="nav-item" ng-click="route('about')">
+					<span class="ion-ios-information">About</span>
+				</ion-item>
+				<ion-item class="nav-item" ng-click="route('booking')">
+					<span class="ion-clipboard">Booking</span>
+				</ion-item>
+				<ion-item class="nav-item" ng-click="route('social')">
+					<span class="ion-social-buffer">Social Media</span>
+				</ion-item>						
+			</ion-list>
+		</ion-content>
+	</div>
+
+	<div id="content-cotainer-mobile">
+		<ion-tabs class="tabs-icon-top no-animation" animation="no-animation">
+			<ion-tab title="Stream" icon="icon ion-social-buffer" href="#/tab/stream">
+				<ion-nav-view name="stream"></ion-nav-view>
+			</ion-tab>
+			<ion-tab title="Music" icon="icon ion-headphone" href="#/tab/music">
+				<ion-nav-view name="music"></ion-nav-view>
+			</ion-tab>
+			<ion-tab title="Bookings" icon="icon ion-clipboard" href="#/tab/booking">
+				<ion-nav-view name="booking"></ion-nav-view>
+			</ion-tab>	
+		</ion-tabs>	
+	</div>
+
+	<div ui-view="nowplaying"></div>
+	
+</size-directive>

@@ -1,0 +1,24 @@
+#horizontal-scroll {
+	width:100%;
+	height:100%;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+#desktop-tiles-container {
+	width:300%;
+	height:100%;
+}
+
+#desktop-tiles-container .desktop-tiles {
+	width:16.666%;
+	height:50%;
+	display: inline-block;
+	border:1px solid white;
+	color:white;
+}
+
+.move-tile-up {
+	position: relative;
+	bottom:5px;
+}

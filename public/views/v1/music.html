@@ -1,0 +1,9 @@
+<ion-view title="Music">
+	<ion-content id="global-ion-content">
+		<ion-list id="tracks">
+			<ion-item ng-repeat="track in tracks" class="track-tile">
+				<soundcloud-list track="track.id" playing="track.playing" index="$index"></soundcloud-list>	
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

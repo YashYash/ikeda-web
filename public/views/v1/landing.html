@@ -1,0 +1,52 @@
+<img class="landing-container-images" src="http://dff2h0hbfv6w4.cloudfront.net/test/images/background-1.jpg" ng-class="{'show-image': (showBackground === 'one')}" ng-load="imageLoaded()">
+
+<img class="landing-container-images" src="http://dff2h0hbfv6w4.cloudfront.net/test/images/background-2" ng-class="{'show-image': (showBackground === 'two')}" ng-load="imageLoaded()">
+
+<img class="landing-container-images"  src="http://dff2h0hbfv6w4.cloudfront.net/test/images/background-3.jpg" ng-class="{'show-image': (showBackground === 'three')}" ng-load="imageLoaded()">
+
+<img class="landing-container-images"  src="http://dff2h0hbfv6w4.cloudfront.net/test/images/background-4.jpg" ng-class="{'show-image': (showBackground === 'four')}" ng-load="imageLoaded()">
+
+<h1 id="name-landing" ng-class="{'show-name-icons' : (showName === 'true')}">
+	IKEDA
+</h1>
+<div id="mini-icons-container" ng-class="{'show-name-icons' : (showName === 'true')}">
+	<span class="ion-headphone mini-icons mini-icon-one" ng-hide="showBackground === 'one'"></span>
+	<span class="ion-social-buffer mini-icons mini-icon-two" ng-hide="showBackground === 'two'"></span>
+	<span class="ion-pricetags mini-icons mini-icon-three" ng-hide="showBackground === 'three'"></span>
+	<span class="ion-clipboard mini-icons mini-icon-four" ng-hide="showBackground === 'four'"></span>
+</div>
+
+<div id="tiles-container">
+	<div id="container-one" class="transparent-tiles" ng-mouseenter="applyBackground('one')" ng-click="goToDesktopRoute('music')">
+		<span class="ion-headphone large-icons" ng-show="showBackground === 'one'">
+			<span>MY MUSIC</span>
+		</span>
+	</div>
+	<div id="container-two" class="transparent-tiles" ng-mouseenter="applyBackground('two')">
+		<span class="ion-social-buffer large-icons" ng-show="showBackground === 'two'">
+			<span>SOCIAL</span>
+		</span>
+	</div>
+	<div id="container-three" class="transparent-tiles" ng-mouseenter="applyBackground('three')">
+		<span class="ion-pricetags large-icons" ng-show="showBackground === 'three'">
+			<span>SHOP</span>
+		</span>
+	</div>
+	<div id="container-four" class="transparent-tiles" ng-mouseenter="applyBackground('four')" ng-click="goToDesktopRoute('booking')">
+		<span class="ion-clipboard large-icons" ng-show="showBackground === 'four'">
+			<span>BOOKINGS</span>
+		</span>
+	</div>
+</div>
+
+<div id="loading-top" ng-class="{'loading-success' : (loadingSuccess === 'true')}" ng-hide="allImagesHaveLoaded === 'true'">
+	<p>ARTIST - PRODUCER - ENTREPRENEUR</p>
+	<h1>IKEDA</h1>
+</div>
+
+<div id="loading-bottom" ng-class="{'loading-success' : (loadingSuccess === 'true')}" ng-hide="allImagesHaveLoaded === 'true'">
+	<p ng-if="loadingSuccess !== 'true'">Loading the experience for you</p>
+	<span ng-if="loadingSuccess !== 'true'" class="ion-load-c rotating-infinite-1s"></span>
+	<h1 ng-if="loadingSuccess === 'true'">WELCOME TO MY WORLD</h1>
+</div>
+
