@@ -47,7 +47,7 @@ ikeda.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
       views: {
         'content@app.v1': {
           templateUrl: '/views/v1/landing.html',
-          controller: 'LandingController'
+          controller: 'NavController'
         }
       }
     })
