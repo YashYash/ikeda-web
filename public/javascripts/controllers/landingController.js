@@ -2,12 +2,10 @@ ikeda.controller('LandingController', [
   '$scope',
   '$state',
   '$rootScope',
-  '$timeout',
   function(
     $scope,
     $state,
-    $rootScope,
-    $timeout) {
+    $rootScope) {
     'use strict';
     console.log('#### Landing Controller');
     $scope.showBackground = 'one';
@@ -17,6 +15,12 @@ ikeda.controller('LandingController', [
       $scope.showBackground = number;
     };
 
+    $scope.showName = 'true';
+    $scope.showMusic = 'true';
+    $scope.showSocial = 'true';
+    $scope.showShop = 'true';
+    $scope.showBooking = 'true';
+
     // $timeout(function() {
     //   $scope.loadingSuccess = 'true';
     //   $scope.showNameAndIcons();
@@ -24,32 +28,33 @@ ikeda.controller('LandingController', [
     //     $rootScope.allImagesHaveLoaded = 'true';
     //   }, 5900);
     // }, 5000);
-    $scope.showNameAndIcons = function() {
-      setTimeout(function() {
-        $scope.showName = 'true';
-      }, 500);
-      setTimeout(function() {
-        $scope.showMusic = 'true';
-      }, 1000);
-      setTimeout(function() {
-        $scope.showSocial = 'true';
-      }, 1500);
-      setTimeout(function() {
-        $scope.showShop = 'true';
-      }, 2000);
-      setTimeout(function() {
-        $scope.showBooking = 'true';
-      }, 2500);
-    }
+    // $scope.showNameAndIcons = function() {
+    //   setTimeout(function() {
+    //     $scope.showName = 'true';
+    //   }, 500);
+    //   setTimeout(function() {
+    //     $scope.showMusic = 'true';
+    //   }, 1000);
+    //   setTimeout(function() {
+    //     $scope.showSocial = 'true';
+    //   }, 1500);
+    //   setTimeout(function() {
+    //     $scope.showShop = 'true';
+    //   }, 2000);
+    //   setTimeout(function() {
+    //     $scope.showBooking = 'true';
+    //   }, 2500);
+    // }
 
-    setTimeout(function() {
-      $scope.loadingSuccess = 'true';
-      $scope.showNameAndIcons();
-      $scope.$apply();
-    }, 3000);
-    setTimeout(function() {
-      $rootScope.allImagesHaveLoaded = 'true';
-    }, 3500);
+    // setTimeout(function() {
+    //   $scope.loadingSuccess = 'true';
+    //   $scope.showNameAndIcons();
+    //   $scope.$apply();
+    // }, 3000);
+    // setTimeout(function() {
+    //   $rootScope.allImagesHaveLoaded = 'true';
+    // }, 3500);
+
     // $scope.imageLoaded = function() {
     //   console.log('####### Image has loaded ########');
     // };
