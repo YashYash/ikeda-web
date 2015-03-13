@@ -17,25 +17,13 @@ ikeda.controller('LandingController', [
       $scope.showBackground = number;
     };
 
-    $timeout(function() {
-      $scope.loadingSuccess = 'true';
-      $scope.showNameAndIcons();
-      $timeout(function() {
-        $rootScope.allImagesHaveLoaded = 'true';
-      }, 5900);
-    }, 5000);
-
-    // $scope.imageLoaded = function() {
-    //   console.log('####### Image has loaded ########');
-    //   setTimeout(function() {
-    //     $scope.loadingSuccess = 'true';
-    //     $scope.showNameAndIcons();
-    //     $scope.$apply();
-    //   }, 3000);
-    //   setTimeout(function() {
-    // $rootScope.allImagesHaveLoaded = 'true';
-    //   }, 3500);
-    // };
+    // $timeout(function() {
+    //   $scope.loadingSuccess = 'true';
+    //   $scope.showNameAndIcons();
+    //   $timeout(function() {
+    //     $rootScope.allImagesHaveLoaded = 'true';
+    //   }, 5900);
+    // }, 5000);
     $scope.showNameAndIcons = function() {
       setTimeout(function() {
         $scope.showName = 'true';
@@ -54,6 +42,17 @@ ikeda.controller('LandingController', [
       }, 2500);
     }
 
+    $scope.imageLoaded = function() {
+      console.log('####### Image has loaded ########');
+      setTimeout(function() {
+        $scope.loadingSuccess = 'true';
+        $scope.showNameAndIcons();
+        $scope.$apply();
+      }, 3000);
+      setTimeout(function() {
+        $rootScope.allImagesHaveLoaded = 'true';
+      }, 3500);
+    };
     $scope.goToDesktopRoute = function(route) {
       if (route === 'music') {
         $state.go('app.v1.music-desktop');

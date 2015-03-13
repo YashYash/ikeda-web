@@ -1,46 +1,46 @@
-var ikeda = angular.module('ikeda', ['ionic', 'ngStorage', 'ngSanitize', 'ngLoad']);
+var ikeda = angular.module('ikeda', ['ionic', 'ngStorage', 'ngLoad']);
 'use strict';
 
 console.log('#### APP JS LOADED: ikeda');
 ikeda.run(['$rootScope', function($rootScope) {
-	console.log('#### App.js .run');
+  console.log('#### App.js .run');
 }]);
 
-ikeda.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+ikeda.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   console.log('#### State provider working');
   $urlRouterProvider.otherwise('/');
   $stateProvider
 
-	.state('app', {
-		url: '/',
-		views: {
-			'global': {
-				templateUrl: '/views/global.html',
-				controller: 'GlobalController'
-			}
-		}
-	})
-	.state('app.v1', {
-	  url: 'tab',
-	  abstract: true,
-	  views: {
-	    'global@': {
-	      templateUrl: '/views/v1/v1.html',
-	      controller: 'RootController'
-	    },
-	    'nav@app.v1': {
-	      templateUrl: '/views/v1/nav.html',
-	      controller: 'NavController'
-	    },
-	    'content@app.v1': {
-	      templateUrl: '/views/v1/content.html',
-	      controller: 'ContentController'
-	    },
-      'nowplaying@app.v1': {
-        templateUrl: '/views/v1/nowplaying-mobile.html',
-        controller: 'NowPlayingController'
-      }      
-	  }
+    .state('app', {
+      url: '/',
+      views: {
+        'global': {
+          templateUrl: '/views/global.html',
+          controller: 'GlobalController'
+        }
+      }
+    })
+    .state('app.v1', {
+      url: 'tab',
+      abstract: true,
+      views: {
+        'global@': {
+          templateUrl: '/views/v1/v1.html',
+          controller: 'RootController'
+        },
+        'nav@app.v1': {
+          templateUrl: '/views/v1/nav.html',
+          controller: 'NavController'
+        },
+        'content@app.v1': {
+          templateUrl: '/views/v1/content.html',
+          controller: 'ContentController'
+        },
+        'nowplaying@app.v1': {
+          templateUrl: '/views/v1/nowplaying-mobile.html',
+          controller: 'NowPlayingController'
+        }
+      }
     })
     .state('app.v1.landing', {
       url: '/landing',
@@ -59,7 +59,7 @@ ikeda.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $ur
           controller: 'MusicController'
         }
       }
-    }) 
+    })
     .state('app.v1.booking-desktop', {
       url: '/booking',
       views: {
@@ -68,7 +68,7 @@ ikeda.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $ur
           controller: 'BookingController'
         }
       }
-    })         
+    })
     .state('app.v1.music-mobile', {
       url: '/music-mobile',
       views: {
@@ -95,7 +95,7 @@ ikeda.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $ur
           controller: 'BookingController'
         }
       }
-    })                 
+    })
 }]);
 
 ikeda.constant('moment', moment);
@@ -108,6 +108,3 @@ ikeda.filter('moment', function() {
     }
   };
 });
-
-
-
