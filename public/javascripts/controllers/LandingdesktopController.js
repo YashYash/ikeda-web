@@ -57,13 +57,13 @@ ikeda.controller('LandingdesktopController', [
                     $scope.showLandingLink = 2;
                     $timeout(function() {
                       $scope.showLandingLink = 3;
-                    }, 500);
-                  }, 500);
-                }, 500);
-              }, 500);
-            }, 500);
-          }, 1000);
-        }, 1000);
+                    }, 400);
+                  }, 400);
+                }, 400);
+              }, 400);
+            }, 400);
+          }, 500);
+        }, 500);
       };
       $scope.goToView = function(view) {
         if(view === 'music') {
@@ -84,6 +84,6 @@ ikeda.controller('LandingdesktopController', [
     };
     $timeout(function() {
       init();
-    }, 1000);
+    }, 800);
   }
 ]);
