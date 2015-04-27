@@ -1,205 +1,309 @@
 /*Toggle now playing.css*/
+
 .hide-nowplaying {
-	bottom:-500px !important;
-}
-.show-nowplaying {
-	bottom:43px !important;
-}
-/*Close now playing cross*/
-.close-now-playing {
-	position: absolute;
-	right: -14px;
-	top: -17px;
-	font-size: 23px;
-	background: rgba(238,238,238,0.02);
-	box-shadow: 0 0 5px rgba(1,1,1,0.6);
-	padding: 6px 9px;
-	border-radius: 100%;
-	cursor: pointer;	
-}
-#now-playing-mobile {
-	position: fixed;
-	width: 270px;
-	bottom: 43px;
-	background: rgba(238,238,238,0.2);
-	color: white;
-	height: 300px;
-	z-index: 100;
-	margin: auto;
-	left: 0;
-	right: 0;
-	box-shadow: 0 0 41px rgba(1,1,1,0.8);
-	background: -webkit-linear-gradient(top,rgba(89,88,89,0)0%,rgba(89,88,89,0)11%,rgba(17,17,17,.03)17%,rgba(28,28,28,.1)23%,rgba(19,19,19,1)100%)!important;
-	background: -o-linear-gradient(top,rgba(89,88,89,0)0%,rgba(89,88,89,.11)11%,rgba(17,17,17,.17)17%,rgba(28,28,28,.23)23%,rgba(19,19,19,1)100%)!important;
-	background: -ms-linear-gradient(top,rgba(89,88,89,0)0%,rgba(89,88,89,.11)11%,rgba(17,17,17,.17)17%,rgba(28,28,28,.23)23%,rgba(19,19,19,1)100%)!important;
-	background: linear-gradient(to bottom,rgba(89,88,89,0)0%,rgba(89,88,89,0)11%,rgba(17,17,17,.03)17%,rgba(28,28,28,.1)23%,rgba(19,19,19,1)100%)!important;
-	-webkit-transition: 0.7s;
-	-moz-transition: 0.7s;
-	transition: 0.7s;	
+  bottom: -500px !important;
 }
 
-/*Now playing css icon fixed bottom right*/
-#toggle-now-playing {
-	position: fixed;
-	bottom: 63px;
-	right: 20px;
-	background: rgba(238,238,238,0.1);
-	width: 43px;
-	height: 46px;
-	border-radius: 100%;
-	box-shadow: 0 0 22px rgba(1,1,1,0.9);	
+.show-nowplaying {
+  bottom: 43px !important;
 }
-.holder{
-	position: absolute;
-	left: 0;
-	right: 0;
-	height: 37px;
-	top: 0;
-	bottom: 0;
-	margin: auto;
-	vertical-align: middle;
-	width: 24px;
-	text-align: center;
-	border-radius: 100%;
-	transform: rotate(180deg);
+/*Close now playing cross*/
+
+.close-now-playing {
+  position: absolute;
+  right: -14px;
+  top: -17px;
+  font-size: 23px;
+  background: rgba(238, 238, 238, 0.02);
+  box-shadow: 0 0 5px rgba(1, 1, 1, 0.6);
+  padding: 6px 9px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+#now-playing-mobile {
+  position: fixed;
+  width: 270px;
+  bottom: 43px;
+  background: rgba(238, 238, 238, 0.2);
+  color: white;
+  height: 300px;
+  z-index: 100;
+  margin: auto;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 41px rgba(1, 1, 1, 0.8);
+  background: -webkit-linear-gradient(top, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, 0)11%, rgba(17, 17, 17, .03)17%, rgba(28, 28, 28, .1)23%, rgba(19, 19, 19, 1)100%)!important;
+  background: -o-linear-gradient(top, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, .11)11%, rgba(17, 17, 17, .17)17%, rgba(28, 28, 28, .23)23%, rgba(19, 19, 19, 1)100%)!important;
+  background: -ms-linear-gradient(top, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, .11)11%, rgba(17, 17, 17, .17)17%, rgba(28, 28, 28, .23)23%, rgba(19, 19, 19, 1)100%)!important;
+  background: linear-gradient(to bottom, rgba(89, 88, 89, 0)0%, rgba(89, 88, 89, 0)11%, rgba(17, 17, 17, .03)17%, rgba(28, 28, 28, .1)23%, rgba(19, 19, 19, 1)100%)!important;
+  -webkit-transition: 0.7s;
+  -moz-transition: 0.7s;
+  transition: 0.7s;
+}
+/*Now playing css icon fixed bottom right*/
+
+#toggle-now-playing {
+  position: fixed;
+  bottom: 63px;
+  right: 20px;
+  background: rgba(238, 238, 238, 0.1);
+  width: 43px;
+  height: 46px;
+  border-radius: 100%;
+  box-shadow: 0 0 22px rgba(1, 1, 1, 0.9);
+}
+
+.holder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 37px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  vertical-align: middle;
+  width: 24px;
+  text-align: center;
+  border-radius: 100%;
+  transform: rotate(180deg);
 }
 
 #now-playing-text {
-	display: none;
+  display: none;
 }
-.bar-all{
+
+.bar-all {
   width: 2px;
   height: 30px;
   background: white;
   margin: 2px;
   float: left;
 }
-.b1{
+
+.b1 {
   -webkit-animation: animation1 750ms linear infinite;
 }
-@-webkit-keyframes animation1{
-  0%  {height: 5px;}
-  25% {height: 10px;}
-  50% {height: 7px;}
-  75% {height: 15px;}
-  100%{height: 8px;}
+
+@-webkit-keyframes animation1 {
+  0% {
+    height: 5px;
+  }
+  25% {
+    height: 10px;
+  }
+  50% {
+    height: 7px;
+  }
+  75% {
+    height: 15px;
+  }
+  100% {
+    height: 8px;
+  }
 }
 
-.b3{
+.b3 {
   -webkit-animation: animation3 750ms linear infinite;
 }
-@-webkit-keyframes animation3{
-  0%  {height: 10px;}
-  25% {height: 25px;}
-  50% {height: 10px;}
-  75% {height: 40px;}
-  100%{height: 10px;}
+
+@-webkit-keyframes animation3 {
+  0% {
+    height: 10px;
+  }
+  25% {
+    height: 25px;
+  }
+  50% {
+    height: 10px;
+  }
+  75% {
+    height: 40px;
+  }
+  100% {
+    height: 10px;
+  }
 }
 
-.b8{
+.b8 {
   -webkit-animation: animation8 750ms linear infinite;
 }
-@-webkit-keyframes animation8{
-  0%  {height: 0px;}
-  25% {height: 20px;}
-  50% {height: 10px;}
-  75% {height: 30px;}
-  100%{height: 0px;}
+
+@-webkit-keyframes animation8 {
+  0% {
+    height: 0px;
+  }
+  25% {
+    height: 20px;
+  }
+  50% {
+    height: 10px;
+  }
+  75% {
+    height: 30px;
+  }
+  100% {
+    height: 0px;
+  }
 }
-.b9{
+
+.b9 {
   -webkit-animation: animation9 750ms linear infinite;
 }
-@-webkit-keyframes animation9{
-  0%  {height: 10px;}
-  25% {height: 30px;}
-  50% {height: 0px;}
-  75% {height: 15px;}
-  100%{height: 10px;}
+
+@-webkit-keyframes animation9 {
+  0% {
+    height: 10px;
+  }
+  25% {
+    height: 30px;
+  }
+  50% {
+    height: 0px;
+  }
+  75% {
+    height: 15px;
+  }
+  100% {
+    height: 10px;
+  }
 }
-.b1{
+
+.b1 {
   -moz-animation: animation1 750ms linear infinite;
 }
-@-moz-keyframes animation1{
-  0%  {height: 5px;}
-  25% {height: 10px;}
-  50% {height: 7px;}
-  75% {height: 15px;}
-  100%{height: 8px;}
+
+@-moz-keyframes animation1 {
+  0% {
+    height: 5px;
+  }
+  25% {
+    height: 10px;
+  }
+  50% {
+    height: 7px;
+  }
+  75% {
+    height: 15px;
+  }
+  100% {
+    height: 8px;
+  }
 }
 
-.b3{
+.b3 {
   -moz-animation: animation3 750ms linear infinite;
 }
-@-moz-keyframes animation3{
-  0%  {height: 10px;}
-  25% {height: 25px;}
-  50% {height: 10px;}
-  75% {height: 40px;}
-  100%{height: 10px;}
+
+@-moz-keyframes animation3 {
+  0% {
+    height: 10px;
+  }
+  25% {
+    height: 25px;
+  }
+  50% {
+    height: 10px;
+  }
+  75% {
+    height: 40px;
+  }
+  100% {
+    height: 10px;
+  }
 }
 
-.b8{
+.b8 {
   -moz-animation: animation8 750ms linear infinite;
 }
-@-moz-keyframes animation8{
-  0%  {height: 0px;}
-  25% {height: 20px;}
-  50% {height: 10px;}
-  75% {height: 30px;}
-  100%{height: 0px;}
+
+@-moz-keyframes animation8 {
+  0% {
+    height: 0px;
+  }
+  25% {
+    height: 20px;
+  }
+  50% {
+    height: 10px;
+  }
+  75% {
+    height: 30px;
+  }
+  100% {
+    height: 0px;
+  }
 }
-.b9{
+
+.b9 {
   -moz-animation: animation9 750ms linear infinite;
 }
-@-moz-keyframes animation9{
-  0%  {height: 10px;}
-  25% {height: 30px;}
-  50% {height: 0px;}
-  75% {height: 15px;}
-  100%{height: 10px;}
+
+@-moz-keyframes animation9 {
+  0% {
+    height: 10px;
+  }
+  25% {
+    height: 30px;
+  }
+  50% {
+    height: 0px;
+  }
+  75% {
+    height: 15px;
+  }
+  100% {
+    height: 10px;
+  }
 }
+
 #sound-cloud-icon {
-	display: none;
+  display: none;
 }
+
 @media(min-width:1024px) {
-	#now-playing-mobile {
-		width:540px;
-	}
-	.show-nowplaying {
-		bottom:0px !important;
-	}
-	#nowplaying-art {
-		width:250px;
-		height:250px;
-	}
-	#toggle-now-playing {
-		left: 24px;
-		background: rgba(1,1,1,0.9);
-		width: 100px;
-		height: 100px;
-		border: 2px solid white;		
-	}
-	#nowplaying-container-title {
-		bottom: 78px;
-		font-size: 20px;
-	}	
-	#music-controls {
-		bottom: 20px;
-	}
-	#now-playing-text {
-		position: absolute;
-		bottom: -30px;
-		display: block;		
-	}
-	#sound-cloud-icon {
-		display: block;
-		position: absolute;
-		font-size: 30px;
-		height: 33px;
-		width: 29px;
-		left: 0;
-		right: 0;
-		margin: auto;
-		bottom: 146px;		
-	}
+  #now-playing-mobile {
+    width: 300px;
+    height: 450px;
+  }
+  #now-playing-mobile {
+    width: 540px;
+  }
+  .show-nowplaying {
+    bottom: 0px !important;
+  }
+  #nowplaying-art {
+    width: 250px;
+    height: 250px;
+  }
+  #toggle-now-playing {
+    left: 24px;
+    background: rgba(1, 1, 1, 0.9);
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+  }
+  #nowplaying-container-title {
+    bottom: 78px;
+    font-size: 20px;
+  }
+  #music-controls {
+    bottom: 20px;
+  }
+  #now-playing-text {
+    position: absolute;
+    bottom: -30px;
+    display: block;
+  }
+  #sound-cloud-icon {
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    height: 33px;
+    width: 29px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 146px;
+  }
 }
