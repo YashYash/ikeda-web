@@ -34,7 +34,7 @@ ikeda.controller('LandingdesktopController', [
       }, false);
 
       $timeout(function() {
-        $scope.dimensions = $rootScope.getDimensions();
+        // $scope.dimensions = $rootScope.getDimensions();
         $scope.startLandingAnimations();
       }, 500);
 
@@ -65,7 +65,14 @@ ikeda.controller('LandingdesktopController', [
           }, 1000);
         }, 1000);
       };
-
+      $scope.goToView = function(view) {
+        if(view === 'music') {
+          $state.go('app.v1.music-desktop')
+        }
+        if(view === 'booking') {
+          $state.go('app.v1.booking-desktop')
+        }
+      };  
       // Ui-relayers
       $rootScope.$on('window resized', function(e) {
         console.log('#### Window has been resized');
