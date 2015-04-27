@@ -1,5 +1,5 @@
-ikeda.directive('sizeDirective', [
-  function() {
+ikeda.directive('sizeDirective', ['$rootScope',
+  function($rootScope) {
   'use strict';
   console.log('#### Size Directive');
   return {
@@ -12,12 +12,20 @@ ikeda.directive('sizeDirective', [
     link: function(scope, element, attrs, state) {
       console.log('#### DOM control');
       $(window).on('resize', function() {
+        $rootScope.$broadcast('window resized');
         if($(window).width() < 1024) {
           scope.goToState('mobile');
         } else {
           scope.goToState('desktop');
         }
-      })
+      });
+      $rootScope.getDimensions = function() {
+        var dimensions = {
+          height: $(window).height(),
+          width: $(window).width()
+        }
+        return dimensions;
+      };
     },
     controller: ['$scope', '$rootScope', '$state' , function($scope, $rootScope, $state) { 	   	
       $scope.goToState = function(state) {

@@ -19,7 +19,7 @@ global.appserver = http.createServer(app);
 global.io = require('socket.io').listen(global.appserver, {
   log: true
 });
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 2000;
 socket = io.sockets.on('connection', function(socket) {
   console.log('#### Socket.io Connected. Port ' + port);
   return socket;
@@ -93,9 +93,9 @@ app.use(function(req, res, next) {
 if (!process.env.NODE_ENV) {
   globalEnv = 'development';
   console.log('#### Ikeda in development ####');
-  console.log('Server listening to port ' + 3000);
+  console.log('Server listening to port ' + 2000);
   console.log('Using dev database - "Ikeda-dev"')
-  appserver.listen(process.env.PORT || 3000);
+  appserver.listen(process.env.PORT || 2000);
   mongoose.connect('mongodb://pinpoint-founder:kobefederer1qaz@ds049170.mongolab.com:49170/pinpoint');
   // mongoose.connect('mongodb://localhost:27017/Ikeda-dev');
   app.use(function(err, req, res, next) {
@@ -111,7 +111,7 @@ if (process.env.NODE_ENV === 'production') {
   globalEnv = 'production';
   console.log('#### Ikeda in production ####');
   console.log('Using production database - "pinpoint-dev"')
-  var port = process.env.PORT || 3000;
+  var port = process.env.PORT || 2000;
   appserver.listen(port);
   console.log('Server listening to port ' + port);
   mongoose.connect('mongodb://pinpoint-founder:kobefederer1qaz@ds049170.mongolab.com:49170/pinpoint');

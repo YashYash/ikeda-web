@@ -1,7 +1,7 @@
 <div id="horizontal-scroll">
 	<ul id="desktop-tiles-container">
 		<li ng-repeat="track in tracks" class="desktop-tiles" ng-class="{'move-tile-up':($index > 5)}">
-			<soundcloud-desktop track="track.id" playing="track.playing" index="$index"></soundcloud-desktop>
+			<soundcloud-desktop track="track.id" index="$index"></soundcloud-desktop>
 		</li>
 	</ul>	
 </div>

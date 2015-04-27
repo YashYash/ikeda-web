@@ -47,7 +47,7 @@ ikeda.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
       views: {
         'content@app.v1': {
           templateUrl: '/views/v1/landing.html',
-          controller: 'NavController'
+          controller: 'LandingController'
         }
       }
     })
@@ -61,7 +61,7 @@ ikeda.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
       }
     })
     .state('app.v1.booking-desktop', {
-      url: '/booking',
+      url: '/booking/:home',
       views: {
         'content@app.v1': {
           templateUrl: '/views/v1/booking-desktop.html',

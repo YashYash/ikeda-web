@@ -8,19 +8,6 @@ ikeda.controller('NavController', [
     $state) {
     'use strict';
     console.log('#### Nav Controller');
-    $scope.goToDesktopRoute = function(route) {
-      if (route === 'home') {
-        $state.go('app.v1.landing');
-      }
-      if (route === 'music') {
-        $state.go('app.v1.music-desktop');
-      }
-      if (route === 'booking') {
-        $state.go('app.v1.booking-desktop');
-      }
-      $rootScope.$broadcast('hide sidenav');
-    }
-
     $scope.showBackground = 'one';
     $scope.loadingSuccess = 'false';
 
@@ -34,6 +21,10 @@ ikeda.controller('NavController', [
     $scope.showShop = 'true';
     $scope.showBooking = 'true';
     $scope.goToDesktopRoute = function(route) {
+      if (route === 'home') {
+        console.log('#### Going home');
+        $state.go('app.v1.landing');
+      }      
       if (route === 'music') {
         $state.go('app.v1.music-desktop');
       }

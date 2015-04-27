@@ -2,69 +2,77 @@ ikeda.controller('LandingController', [
   '$scope',
   '$state',
   '$rootScope',
+  '$timeout',
   function(
     $scope,
     $state,
-    $rootScope) {
+    $rootScope,
+    $timeout) {
     'use strict';
     console.log('#### Landing Controller');
-    $scope.showBackground = 'one';
-    $scope.loadingSuccess = 'false';
 
-    $scope.applyBackground = function(number) {
-      $scope.showBackground = number;
+    // Init
+    var backgroundVideo = document.getElementById('background-video');
+    backgroundVideo.play();
+    backgroundVideo.addEventListener('loadedmetadata', function() {
+      var video = this;
+      var startVideo = function() {
+        console.log('#### Starting the video');
+        video.currentTime = 35;
+        $timeout(function() {
+          video.currentTime = 70;
+          $timeout(function() {
+            video.currentTime = 95;
+            $timeout(function() {
+              startVideo();
+            }, 7000);
+          }, 7000);
+        }, 7000);
+      };
+      startVideo();
+    }, false);
+
+    $timeout(function() {
+      $scope.dimensions = $rootScope.getDimensions();
+      $scope.startLandingAnimations();
+    }, 500);
+
+    // Ui-repsonders
+    $scope.hoverLandingLinks = function(route) {
+      $scope.currentHoverLink = route;
+    };
+    $scope.startLandingAnimations = function() {
+      $timeout(function() {
+        $scope.showLandingPlayButton  = true;
+        $timeout(function() {
+          $scope.showIkedaName = true;
+          $timeout(function() {
+            $scope.showLandingCircle = true;
+            $timeout(function() {
+              $scope.showLandingLines = true;
+              $timeout(function() {
+                $scope.showLandingLink = 1;
+                $timeout(function() {
+                  $scope.showLandingLink = 2;
+                  $timeout(function() {
+                    $scope.showLandingLink = 3;
+                  }, 500);
+                }, 500);
+              }, 500);
+            }, 500);
+          }, 500);
+        }, 1000);
+      }, 1000);
     };
 
-    $scope.showName = 'true';
-    $scope.showMusic = 'true';
-    $scope.showSocial = 'true';
-    $scope.showShop = 'true';
-    $scope.showBooking = 'true';
 
-    // $timeout(function() {
-    //   $scope.loadingSuccess = 'true';
-    //   $scope.showNameAndIcons();
-    //   $timeout(function() {
-    //     $rootScope.allImagesHaveLoaded = 'true';
-    //   }, 5900);
-    // }, 5000);
-    // $scope.showNameAndIcons = function() {
-    //   setTimeout(function() {
-    //     $scope.showName = 'true';
-    //   }, 500);
-    //   setTimeout(function() {
-    //     $scope.showMusic = 'true';
-    //   }, 1000);
-    //   setTimeout(function() {
-    //     $scope.showSocial = 'true';
-    //   }, 1500);
-    //   setTimeout(function() {
-    //     $scope.showShop = 'true';
-    //   }, 2000);
-    //   setTimeout(function() {
-    //     $scope.showBooking = 'true';
-    //   }, 2500);
-    // }
-
-    // setTimeout(function() {
-    //   $scope.loadingSuccess = 'true';
-    //   $scope.showNameAndIcons();
-    //   $scope.$apply();
-    // }, 3000);
-    // setTimeout(function() {
-    //   $rootScope.allImagesHaveLoaded = 'true';
-    // }, 3500);
-
-    // $scope.imageLoaded = function() {
-    //   console.log('####### Image has loaded ########');
-    // };
-    $scope.goToDesktopRoute = function(route) {
-      if (route === 'music') {
-        $state.go('app.v1.music-desktop');
-      }
-      if (route === 'booking') {
-        $state.go('app.v1.booking-desktop');
-      }
-    }
+    // Ui-relayers
+    $rootScope.$on('window resized', function(e) {
+      console.log('#### Window has been resized');
+      e.preventDefault();
+      $scope.$apply(function() {
+        $scope.dimensions = $rootScope.getDimensions();
+      });
+    });
   }
 ]);
