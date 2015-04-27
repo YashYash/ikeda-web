@@ -12,27 +12,26 @@ ikeda.controller('LandingdesktopController', [
     console.log('#### Landing Controller');
 
     // Init
-    var init = function() {
-      var backgroundVideo = document.getElementById('background-video');
-      backgroundVideo.play();
-      backgroundVideo.addEventListener('loadedmetadata', function() {
-        var video = this;
-        var startVideo = function() {
-          console.log('#### Starting the video');
-          video.currentTime = 35;
+    var backgroundVideo = document.getElementById('background-video');
+    backgroundVideo.play();
+    backgroundVideo.addEventListener('loadedmetadata', function() {
+      var video = this;
+      var startVideo = function() {
+        console.log('#### Starting the video');
+        video.currentTime = 35;
+        $timeout(function() {
+          video.currentTime = 70;
           $timeout(function() {
-            video.currentTime = 70;
+            video.currentTime = 95;
             $timeout(function() {
-              video.currentTime = 95;
-              $timeout(function() {
-                startVideo();
-              }, 7000);
+              startVideo();
             }, 7000);
           }, 7000);
-        };
-        startVideo();
-      }, false);
-
+        }, 7000);
+      };
+      startVideo();
+    }, false);
+    var init = function() {
       $timeout(function() {
         // $scope.dimensions = $rootScope.getDimensions();
         $scope.startLandingAnimations();
@@ -66,13 +65,13 @@ ikeda.controller('LandingdesktopController', [
         }, 500);
       };
       $scope.goToView = function(view) {
-        if(view === 'music') {
+        if (view === 'music') {
           $state.go('app.v1.music-desktop')
         }
-        if(view === 'booking') {
+        if (view === 'booking') {
           $state.go('app.v1.booking-desktop')
         }
-      };  
+      };
       // Ui-relayers
       $rootScope.$on('window resized', function(e) {
         console.log('#### Window has been resized');

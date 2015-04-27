@@ -86,7 +86,10 @@
   bottom: 200px;
   border: 2px solid rgba(238, 238, 238, 0.1);
   -webkit-animation: rotateSquare 30s linear infinite;
-  -webkit-transition: 1s;
+  -moz-animation: rotateSquare 30s linear infinite;
+  -ms-animation: rotateSquare 30s linear infinite;
+  -o-animation: rotateSquare 30s linear infinite;
+  transition: 1s;
   -moz-transition: 1s;
   -ms-transition: 1s;
   -o-transition: 1s;
