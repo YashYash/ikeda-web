@@ -12,9 +12,10 @@ ikeda.controller('LandingdesktopController', [
     console.log('#### Landing Controller');
 
     // Init
-    var backgroundVideo = document.getElementById('background-video');
-    backgroundVideo.play();
-    backgroundVideo.addEventListener('loadedmetadata', function() {
+    $scope.backgroundVideo = document.getElementById('background-video');
+    $scope.actualVideo = document.getElementById('actual-video');
+    $scope.backgroundVideo.play();
+    $scope.backgroundVideo.addEventListener('loadedmetadata', function() {
       var video = this;
       var startVideo = function() {
         console.log('#### Starting the video');
@@ -70,6 +71,52 @@ ikeda.controller('LandingdesktopController', [
         }
         if (view === 'booking') {
           $state.go('app.v1.booking-desktop')
+        }
+      };
+      $scope.showVideo = function() {
+        $scope.backgroundVideo.pause();
+        $scope.playing = true;
+        $scope.showVideoBackdrop = true;
+        $timeout(function() {
+          $scope.fadeinVideoBackdrop = true;
+          $timeout(function() {
+            $scope.showActualVideo = true;
+            $timeout(function() {
+              $scope.fadeinActualVideo = true;
+              $scope.actualVideo.play();
+              $scope.actualVideo.addEventListener('loadedmetadata', function() {
+                var video = this;
+                video.currentTime = 0;
+              }, false);
+            }, 400);
+          }, 400)
+        }, 400);
+      };
+      $scope.hideVideo = function() {
+        $scope.backgroundVideo.play();
+        $scope.playing = false;
+        $scope.actualVideo.pause();
+        $scope.fadeinActualVideo = false;
+        $timeout(function() {
+          $scope.showActualVideo = false;
+          $timeout(function() {
+            $scope.fadeinVideoBackdrop = false;
+            $timeout(function() {
+              $scope.showVideoBackdrop = false;
+            }, 300);
+          }, 300);
+        }, 1200);
+      };
+
+      $scope.toggleVideo = function() {
+        if($scope.playing) {
+          $scope.showPause = true;
+          $scope.actualVideo.pause();
+          $scope.playing = false;  
+        } else {
+          $scope.showPause = false;
+          $scope.actualVideo.play();
+          $scope.playing = true;  
         }
       };
       // Ui-relayers

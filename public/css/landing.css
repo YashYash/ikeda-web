@@ -23,6 +23,32 @@
   -o-transition: 1.2s;
   transition: 1.2s;
 }
+
+.landing-play-pause {
+  cursor: pointer;
+  -webkit-animation: rotateSquare 30s linear infinite;
+  -moz-animation: rotateSquare 30s linear infinite;
+  -ms-animation: rotateSquare 30s linear infinite;
+  -o-animation: rotateSquare 30s linear infinite;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+
+.landing-play-pause:hover {
+  box-shadow: inset 0 0 70px rgba(238, 238, 238, 0.2);
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+
+.landing-play-pause.ng-leave.ng-leave-active {
+  display: none;
+}
 /* Looping Video */
 
 .landing-container .background-video-container {
@@ -48,7 +74,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(1, 1, 1, 0.87);
+  background: rgba(1, 1, 1, 0.8);
   z-index: 1;
 }
 /* Video Controls */
@@ -67,6 +93,7 @@
   font-size: 45px;
   z-index: 1;
   opacity: 0;
+  cursor: pointer;
 }
 
 .play-icon-landing.show-landing-play-button {
@@ -85,25 +112,6 @@
   margin: auto;
   bottom: 200px;
   border: 2px solid rgba(238, 238, 238, 0.1);
-  -webkit-animation: rotateSquare 30s linear infinite;
-  -moz-animation: rotateSquare 30s linear infinite;
-  -ms-animation: rotateSquare 30s linear infinite;
-  -o-animation: rotateSquare 30s linear infinite;
-  transition: 1s;
-  -moz-transition: 1s;
-  -ms-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
-  cursor: pointer;
-}
-
-.landing-container .play-button-container:hover {
-  box-shadow: inset 0 0 70px rgba(238, 238, 238, 0.2);
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -ms-transition: 1s;
-  -o-transition: 1s;
-  transition: 1s;
 }
 /* Landing Content */
 
@@ -141,7 +149,7 @@
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
-  transform: translateY(0);  
+  transform: translateY(0);
 }
 
 .landing-container .landing-content .circle {
@@ -206,7 +214,7 @@
   -moz-transform: translateY(10px);
   -ms-transform: translateY(10px);
   -o-transform: translateY(10px);
-  transform: translateY(10px);  
+  transform: translateY(10px);
 }
 
 .landing-container .landing-content ul li.show-landing-link {
@@ -215,7 +223,7 @@
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
-  transform: translateY(0);   
+  transform: translateY(0);
 }
 
 .landing-container .landing-content ul li.hover-link {
@@ -236,5 +244,189 @@
 
 .landing-container .landing-content ul li.hover-link div {
   width: 80px;
+  opacity: 1;
+}
+/* Actual Video */
+
+.video-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(1, 1, 1, 0.7);
+  opacity: 0;
+  display: none;
+  -webkit-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.video-backdrop.show-video-backdrop {
+  display: block;
+}
+
+.video-backdrop.fadein-video-backdrop {
+  opacity: 1;
+}
+
+.actual-video {
+  width: 85%;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 2px solid rgba(238, 238, 238, 0.1);
+  z-index: 2;
+  display: none;
+  opacity: 0;
+  overflow: hidden;
+  background: black;
+  width: 1000px;
+  -webkit-transition: 1.2s ease;
+  -ms-transition: 1.2s ease;
+  -moz-transition: 1.2s ease;
+  -o-transition: 1.2s ease;
+  transition: 1.2s ease;
+}
+
+.actual-video.show-actual-video {
+  display: block;
+}
+
+.actual-video.fadein-actual-video {
+  opacity: 1;
+  height: 530px;
+}
+
+.actual-video .pause-button-container {
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(238, 238, 238, 0.1);
+  top: 0;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  z-index: 1;
+}
+
+.actual-video .pause-button {
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  width: 20px;
+  height: 40px;
+  top: 0;
+  bottom: 100px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.actual-video .share-video {
+  position: absolute;
+  width: 500px;
+  text-align: center;
+  color: white;
+  height: 40px;
+  top: 150px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+}
+
+.actual-video .share-video ul {
+  text-align: center;
+}
+
+.actual-video .share-video ul li {
+  display: inline-block;
+  color: white;
+  margin: 0 20px;
+  font-size: 23px;
+  border: 2px solid rgba(238, 238, 238, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.actual-video .share-video ul li:before {
+  position: relative;
+  top: 11px;
+}
+
+.actual-video .share-video ul li:nth-of-type(1):hover {
+  border: 2px solid rgba(73, 101, 159, 0.1);
+  box-shadow: inset 0 0 10px rgba(73, 101, 159, 0.8);
+  color: rgba(73, 101, 159, 1);
+}
+
+.actual-video .share-video ul li:nth-of-type(2):hover {
+  border: 2px solid rgba(85, 172, 238, 0.1);
+  box-shadow: inset 0 0 10px rgba(85, 172, 238, 0.8);
+  color: rgba(85, 172, 238, 1);
+}
+
+.actual-video .share-video ul li:nth-of-type(3):hover {
+  border: 2px solid rgba(30, 192, 30, 0.1);
+  box-shadow: inset 0 0 10px rgba(30, 192, 30, 0.8);
+  color: rgba(30, 192, 30, 1);
+}
+
+.actual-video video {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;  
+}
+
+.actual-video video.blur-video {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -ms-filter: blur(3px);
+  -o-filter: blur(3px);
+  filter: blur(3px);
+  -webkit-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;  
+}
+
+.actual-video .video-pause-overlay {
+  position: absolute;
+  width:100%;
+  height:100%;
+  background:rgba(1,1,1,0.8);
+  -webkit-transition: 0.7s;
+  -ms-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; 
+  opacity: 0;  
+  z-index: 1;
+}
+.actual-video .video-pause-overlay.show-video-pause-overlay {
   opacity: 1;
 }
